@@ -34,14 +34,12 @@ public class Game
 				playerName = "A";
 				shooterPlayer = firstPlayer;
 				defendarPlayer = secondPlayer;
-				turn = 2;
 			}
 			else
 			{
 				playerName = "B";
 				shooterPlayer = secondPlayer;
 				defendarPlayer = firstPlayer;
-				turn = 1;
 			}
 			
 			
@@ -74,6 +72,9 @@ public class Game
 				System.out.println("Shoot Result: " + shootResult);
 			}
 			while (shootResult.equals(ShootResult.hitAgain));
+			
+			if (shootResult.equals(shootResult.miss))
+				turn = (turn % 2) + 1;
 		}
 		while (!this.firstPlayer.isLooser() && !this.secondPlayer.isLooser());
 		
